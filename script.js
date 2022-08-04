@@ -34,9 +34,9 @@ var sceneH =  canvas.getBoundingClientRect().width.height;
 			//scene.environmentTexture = new BABYLON.HDRCubeTexture("./textures/chest.hdr", scene, 128, false, true, false, true);
 			
 			scene.environmentTexture = new BABYLON.HDRCubeTexture("./textures/2022-07-20_BB_CRM_Loot_Box_HDRI_01.hdr", scene, 1024, false, true, false, true);
-			//scene.environmentTexture.rotationY = 232
+			scene.environmentTexture.rotationY = 3.3958653089897175
 
-			scene.environmentIntensity = 1.7
+			scene.environmentIntensity = 0.6892578125
 			//console.log(scene)
           
         	var harmonic = function(m, lat, long, paths) {
