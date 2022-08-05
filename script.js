@@ -37,7 +37,7 @@ var sceneH =  canvas.getBoundingClientRect().width.height;
 			//scene.environmentTexture = new BABYLON.HDRCubeTexture("./textures/2022-07-20_BB_CRM_Loot_Box_HDRI_01.hdr", scene, 1024, false, true, false, true);
 			scene.environmentTexture.rotationY = 3.3
 
-			scene.environmentIntensity = 0.65
+			scene.environmentIntensity = 0.85
 			
 
           
@@ -174,7 +174,7 @@ var sceneH =  canvas.getBoundingClientRect().width.height;
 				new BABYLON.Color3(0.8617196081186744, 0.8661211087745191, 0.5348547991238075),
 				new BABYLON.Color3(0.8447836092250421, 0.8024552726344693, 0.6321067681176181),
 				new BABYLON.Color3(0.8956000276623619, 0.9005787536780432, 0.8258989204023653),
-				new BABYLON.Color3(0.9548547234058388, 0.9543866000945668, 0.8258989204023653),
+				new BABYLON.Color3(0.8617196081186744, 0.8661211087745191, 0.5348547991238075),
 				new BABYLON.Color3(0.9548547234058388, 0.9543866000945668, 0.755383812022796),
         	];
         
