@@ -25,22 +25,15 @@ var sceneH =  canvas.getBoundingClientRect().width.height;
         var createScene = function () {
         	var scene = new BABYLON.Scene(engine);
 			scene.clearColor = new BABYLON.Color3(1, 0, 0);
-
+			
 			var postprocess = scene.imageProcessingConfiguration
 			engine.setHardwareScalingLevel(0.5);   
 			postprocess.toneMappingType = BABYLON.ImageProcessingConfiguration.TONEMAPPING_ACES;
 			
-			//scene.environmentTexture = new BABYLON.CubeTexture("./textures/chest.env", scene)
-			//scene.environmentTexture = new BABYLON.HDRCubeTexture("./textures/chest.hdr", scene, 128, false, true, false, true);
 			scene.environmentTexture = new BABYLON.CubeTexture("./textures/armorChest.env", scene);
-			
-			//scene.environmentTexture = new BABYLON.HDRCubeTexture("./textures/2022-07-20_BB_CRM_Loot_Box_HDRI_01.hdr", scene, 1024, false, true, false, true);
 			scene.environmentTexture.rotationY = 3.3
-
 			scene.environmentIntensity = 0.85
 			
-
-          
         	var harmonic = function(m, lat, long, paths) {
         		var pi = Math.PI;
         		var pi2 = Math.PI * 2;
@@ -183,10 +176,6 @@ var sceneH =  canvas.getBoundingClientRect().width.height;
         	 var light = new BABYLON.PointLight("Omni", new BABYLON.Vector3(0, 0, 0), scene);
         	light.diffuse = new BABYLON.Color3(1, 1, 1);
         	light.intensity = .02;
-
-			
- 
-        
         
         	//Adding an Arc Rotate Camera
         	var camera = new BABYLON.ArcRotateCamera("Camera", -Math.PI * 0.12, 1.1, 8, BABYLON.Vector3.Zero(), scene);
@@ -216,8 +205,6 @@ var sceneH =  canvas.getBoundingClientRect().width.height;
                     if(mesh.material) {
 						trasure = mesh
                         mesh.scaling = new BABYLON.Vector3(0, 0, 0);
-                        //mesh.position = new BABYLON.Vector3(0.2, 0.4, -0.1);
-                        //mesh.rotation = new BABYLON.Vector3(0,68,0);
                         mesh.material = fireMaterial;
                         godrays = new BABYLON.VolumetricLightScatteringPostProcess('godrays', 1.0, camera, mesh, 100, BABYLON.Texture.BILINEAR_SAMPLINGMODE, engine, false);
                         godrays.exposure = 0.2;
