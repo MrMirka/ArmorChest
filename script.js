@@ -32,12 +32,14 @@ var sceneH =  canvas.getBoundingClientRect().width.height;
 			
 			//scene.environmentTexture = new BABYLON.CubeTexture("./textures/chest.env", scene)
 			//scene.environmentTexture = new BABYLON.HDRCubeTexture("./textures/chest.hdr", scene, 128, false, true, false, true);
+			scene.environmentTexture = new BABYLON.CubeTexture("./textures/armorChest.env", scene);
 			
-			scene.environmentTexture = new BABYLON.HDRCubeTexture("./textures/2022-07-20_BB_CRM_Loot_Box_HDRI_01.hdr", scene, 1024, false, true, false, true);
-			scene.environmentTexture.rotationY = 3.3958653089897175
+			//scene.environmentTexture = new BABYLON.HDRCubeTexture("./textures/2022-07-20_BB_CRM_Loot_Box_HDRI_01.hdr", scene, 1024, false, true, false, true);
+			scene.environmentTexture.rotationY = 3.3
 
-			scene.environmentIntensity = 0.6892578125
-			//console.log(scene)
+			scene.environmentIntensity = 0.65
+			
+
           
         	var harmonic = function(m, lat, long, paths) {
         		var pi = Math.PI;
@@ -181,6 +183,8 @@ var sceneH =  canvas.getBoundingClientRect().width.height;
         	 var light = new BABYLON.PointLight("Omni", new BABYLON.Vector3(0, 0, 0), scene);
         	light.diffuse = new BABYLON.Color3(1, 1, 1);
         	light.intensity = .02;
+
+			
  
         
         
@@ -189,6 +193,22 @@ var sceneH =  canvas.getBoundingClientRect().width.height;
         	//camera.attachControl(canvas, true);
 			camera.position = new BABYLON.Vector3(3.7,1.6,-2.5);
 			camera.target = new BABYLON.Vector3(0,0.5,0);
+
+			//Add postprocess
+			var pipeline = new BABYLON.DefaultRenderingPipeline(
+				"defaultPipeline", 
+				false, 
+				scene, 
+				[camera] 
+			);
+			//Grain
+			pipeline.grainEnabled = true;
+			pipeline.grain.intensity = 8;
+			pipeline.grain.animated = true;
+
+			//GRAIN
+			pipeline.chromaticAberrationEnabled = true;
+      		pipeline.chromaticAberration.aberrationAmount = 4; // 30 by default
     
                 BABYLON.SceneLoader.ImportMesh("", "./models/", "treasure.glb", scene, function (meshes, particleSystems, skeletons) {
               meshes.forEach(mesh => {	  
@@ -579,8 +599,9 @@ var sceneH =  canvas.getBoundingClientRect().width.height;
 		});
 
 		chest.setKeys(keyframes);
-		var easingFunction = new BABYLON.CircleEase();
-		easingFunction.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
+		//var easingFunction = new BABYLON.CircleEase();
+		var easingFunction = new BABYLON.BezierCurveEase(0.5, 0, 0.5, 1);
+		//easingFunction.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
 		chest.setEasingFunction(easingFunction);
 		object.animations.push(chest);
 
@@ -606,8 +627,9 @@ var sceneH =  canvas.getBoundingClientRect().width.height;
 		});
 
 		chest.setKeys(keyframes);
-		var easingFunction = new BABYLON.CircleEase();
-		easingFunction.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
+		//var easingFunction = new BABYLON.CircleEase();
+		var easingFunction = new BABYLON.BezierCurveEase(0.5, 0, 0.5, 1);
+		//easingFunction.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
 		chest.setEasingFunction(easingFunction);
 		object.animations.push(chest);
 
