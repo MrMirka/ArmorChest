@@ -322,7 +322,7 @@ var sceneH =  canvas.getBoundingClientRect().width.height;
 			
 
 			//GUI
-			var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+			/* var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
 			var panel = new BABYLON.GUI.StackPanel();
 			panel.width = "200px";
 			panel.isVertical = true;
@@ -442,7 +442,7 @@ var sceneH =  canvas.getBoundingClientRect().width.height;
 			panelLight.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
 			panelLight.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
 			panelLight.ignoreLayoutWarnings = true;
-			advancedTexture.addControl(panelLight);
+			advancedTexture.addControl(panelLight); */
 			
 			//addPointLight("PointLight_1", new BABYLON.Vector3(2,3,4), advancedTexture, true);
 
@@ -518,7 +518,7 @@ var sceneH =  canvas.getBoundingClientRect().width.height;
 		
 	}
 
-	function addPointLight(text,position, gui, UI){
+/* 	function addPointLight(text,position, gui, UI){
 		let pointLight = new BABYLON.PointLight(text, position, scene);
 		pointLight.intensity = 2;
 		pointLight.radius = 1;
@@ -537,7 +537,7 @@ var sceneH =  canvas.getBoundingClientRect().width.height;
 			addSlider("intensity", 0,100,1,pointLight,panelHorizontal, gui);
 		}
 		
-	}
+	} */
 
 	function setAnimation(object){
 		//Animation data
