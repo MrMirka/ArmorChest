@@ -199,7 +199,8 @@ var sceneH =  canvas.getBoundingClientRect().width.height;
 			pipeline.chromaticAberrationEnabled = true;
       		pipeline.chromaticAberration.aberrationAmount = 4; // 30 by default
     
-                BABYLON.SceneLoader.ImportMesh("", "./models/", "treasure.glb", scene, function (meshes, particleSystems, skeletons) {
+                //BABYLON.SceneLoader.ImportMesh("", "./models/", "treasure.glb", scene, function (meshes, particleSystems, skeletons) {
+                BABYLON.SceneLoader.ImportMesh("", "./models/", "treasure.gltf", scene, function (meshes, particleSystems, skeletons) {
               meshes.forEach(mesh => {	  
 					
                     if(mesh.material) {
